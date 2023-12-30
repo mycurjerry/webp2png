@@ -1,14 +1,5 @@
 FROM php:8.0-apache
 
-# 更新软件源
-RUN apt-get update
-
-# 安装 libwebp-dev
-RUN apt-get install -y libwebp-dev
-
-# 安装 PHP 的 GD 扩展
-RUN docker-php-ext-install gd
-
 # 将 PHP 脚本复制到 Apache 服务器的根目录
 COPY ./src/ /var/www/html/
 
