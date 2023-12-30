@@ -20,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } else {
     http_response_code(405);
-    echo "2ui的api，webp转png。只支持 POST 方法。";
+    if (extension_loaded('gd')) {
+        echo "GD库已安装";
+    } else {
+        echo "GD库未安装";
+    }
+
+    echo "API made by 2ui，实现webp转png，只支持 POST 方法。";
 }
 ?>
